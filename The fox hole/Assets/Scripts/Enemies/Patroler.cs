@@ -13,10 +13,24 @@ public class Patroler : MonoBehaviour
     private int _currentPoint = 0;
     private float _patroleDelay = 1.5f;
     private float _minDistanceToPoint = 0.05f;
+    private Coroutine _coroutine;
 
     private void Start()
     {
-        StartCoroutine(Patrolling());
+        EnablePatrole();
+    }
+
+    public void EnablePatrole()
+    {
+        _coroutine = StartCoroutine(Patrolling());
+    }
+
+    public void StopPatrole()
+    {
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+        }
     }
 
     private IEnumerator Patrolling()
@@ -35,6 +49,7 @@ public class Patroler : MonoBehaviour
                 yield return null;
             }
 
+            _currentPoint++;
             yield return wait;
         }
     }
@@ -63,7 +78,6 @@ public class Patroler : MonoBehaviour
             }
 
             point = _points[_currentPoint];
-            _currentPoint++;
         }
 
         return point;
