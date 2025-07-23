@@ -8404,8 +8404,11 @@ GameObject:
   - component: {fileID: 283713050}
   - component: {fileID: 283713049}
   - component: {fileID: 283713051}
-  - component: {fileID: 283713053}
   - component: {fileID: 283713052}
+  - component: {fileID: 283713056}
+  - component: {fileID: 283713055}
+  - component: {fileID: 283713054}
+  - component: {fileID: 283713053}
   m_Layer: 0
   m_Name: Enemy Frog
   m_TagString: Untagged
@@ -8456,7 +8459,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 86ca59b9bca0e409b9ba2784fbe69f01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -8594,16 +8597,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 283713046}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea2d55ac50e5121428dc0776ef6fdcf2, type: 3}
+  m_Script: {fileID: 11500000, guid: 70cdc9f5a63710e46b05b0aa80cf8ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 283713051}
-  _fliper: {fileID: 283713052}
+--- !u!114 &283713054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283713046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f43f8331b4ada47bcfca2ada43cd0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mover: {fileID: 283713055}
   _points:
   - {fileID: 1019838159}
   - {fileID: 308649519}
   - {fileID: 518709205}
   - {fileID: 2104782302}
+--- !u!114 &283713055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283713046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e8ed2f447325c4f8d7a3701466f908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fliper: {fileID: 283713052}
+  _speed: 5
+--- !u!114 &283713056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283713046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea2d55ac50e5121428dc0776ef6fdcf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patroler: {fileID: 283713054}
+  _animator: {fileID: 283713053}
 --- !u!1 &308649518
 GameObject:
   m_ObjectHideFlags: 0
@@ -8865,6 +8908,7 @@ GameObject:
   - component: {fileID: 519471187}
   - component: {fileID: 519471188}
   - component: {fileID: 519471190}
+  - component: {fileID: 519471192}
   - component: {fileID: 519471191}
   m_Layer: 0
   m_Name: Enemy Opossum
@@ -8916,7 +8960,7 @@ SpriteRenderer:
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: baa0c643131554ff99574059ec7da1cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -9054,10 +9098,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 519471183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18ed536badff7b34b9f1cf68a9e25a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: c8e8ed2f447325c4f8d7a3701466f908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _fliper: {fileID: 519471190}
+  _speed: 3
+--- !u!114 &519471192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519471183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f43f8331b4ada47bcfca2ada43cd0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mover: {fileID: 519471191}
   _points:
   - {fileID: 1101729309}
   - {fileID: 1898138478}
@@ -9261,7 +9319,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 13
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 36
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10281,7 +10339,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -10371,7 +10429,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -11346,8 +11404,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 152
     m_Data: {fileID: 21300218, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300148, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 21300196, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 2
@@ -11363,7 +11421,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 21300158, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300164, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
+    m_Data: {fileID: 21300148, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300146, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 2
@@ -11371,7 +11429,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300140, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300244, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
+    m_Data: {fileID: 21300164, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300246, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
@@ -11416,8 +11474,8 @@ Tilemap:
     m_Data: {fileID: 21300180, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300216, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300244, guid: 261212b977f594d5dbc48631a5c1295c, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 207
     m_Data:
@@ -13282,6 +13340,8 @@ GameObject:
   - component: {fileID: 2082175757}
   - component: {fileID: 2082175761}
   - component: {fileID: 2082175762}
+  - component: {fileID: 2082175767}
+  - component: {fileID: 2082175766}
   - component: {fileID: 2082175760}
   - component: {fileID: 2082175765}
   - component: {fileID: 2082175763}
@@ -13393,6 +13453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0035f06d2eb00b4d94923f804d06a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 2082175766}
+  _inputMaster: {fileID: 2082175767}
   _fliper: {fileID: 2082175765}
 --- !u!61 &2082175761
 BoxCollider2D:
@@ -13478,7 +13540,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb8070be466d4748a69653623ba213d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 2082175757}
+  _inputMaster: {fileID: 2082175767}
+  _playerAnimator: {fileID: 2082175766}
 --- !u!114 &2082175764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13501,6 +13564,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ed7d62e440979e4190714cd589b49e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2082175766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082175754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8e2cc190c9fb5428faa2a9dafd35ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2082175757}
+--- !u!114 &2082175767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082175754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0569cbf4cbdd9364bb6fdc11132091b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2104782301

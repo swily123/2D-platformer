@@ -1,31 +1,38 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-
 public class Movement : MonoBehaviour
 {
+    [SerializeField] private PlayerAnimator _playerAnimator;
+    [SerializeField] private InputMaster _inputMaster;
     [SerializeField] private Fliper _fliper;
 
+    private const string _horizontal = "Horizontal";
     private float _speed = 8;
-    private Animator _animator;
-    private readonly string Horizontal = nameof(Horizontal);
 
-    private void Awake()
+    private void OnEnable()
     {
-        _animator = GetComponent<Animator>();
+        _inputMaster.HorizontalButtonsPressed += Move;
+        _inputMaster.HorizontalButtonsHolding += Move;
+        _inputMaster.HorizontalButtonsReleased += Idle;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        float direction = Input.GetAxisRaw(Horizontal);
+        _inputMaster.HorizontalButtonsPressed -= Move;
+        _inputMaster.HorizontalButtonsHolding -= Move;
+        _inputMaster.HorizontalButtonsReleased -= Idle;
+    }
 
-        Move(direction);
+    private void Move()
+    {
+        _playerAnimator.Move(true);
+        float direction = Input.GetAxisRaw(_horizontal);
         _fliper.Flip(direction);
+        transform.Translate(Vector2.right * _speed * Time.deltaTime);
     }
 
-    private void Move(float direction)
+    private void Idle()
     {
-        _animator.SetBool("isMoving", direction != 0);
-        transform.Translate(Vector2.right * direction * _speed * Time.deltaTime);
+        _playerAnimator.Move(false);
     }
 }

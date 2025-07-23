@@ -1,36 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Opossum : MonoBehaviour
+public class Patroler : MonoBehaviour
 {
-    [SerializeField] private Fliper _fliper;
+    [SerializeField] private Mover _mover;
     [SerializeField] private List<Transform> _points;
 
-    private float _minDistanceToPoint = 0.05f;
-    private float _patroleDelay = 1.5f;
-    private float _speed = 3;
+    public event Action PatrolStarted;
+
     private int _currentPoint = 0;
+    private float _patroleDelay = 1.5f;
+    private float _minDistanceToPoint = 0.05f;
 
     private void Start()
     {
-        StartCoroutine(Patrolling(_speed));
+        StartCoroutine(Patrolling());
     }
 
-    private IEnumerator Patrolling(float speed)
+    private IEnumerator Patrolling()
     {
+        WaitForSeconds wait = new WaitForSeconds(_patroleDelay);
+
         while (enabled)
         {
             Transform targetPoint = GetPoint();
             Vector2 direction = (targetPoint.position - transform.position).normalized;
+            PatrolStarted?.Invoke();
 
             while (IsTouchPoint(targetPoint) == false)
             {
-                Move(direction);
+                _mover.Move(direction);
                 yield return null;
             }
 
-            yield return new WaitForSeconds(_patroleDelay);
+            yield return wait;
         }
     }
 
@@ -39,7 +44,9 @@ public class Opossum : MonoBehaviour
         Vector2 position = transform.position * Vector2.right;
         Vector2 pointPosition = point.position * Vector2.right;
 
-        bool isTouch = Vector2.Distance(position, pointPosition) <= _minDistanceToPoint;
+        float distance = (pointPosition - position).sqrMagnitude;
+
+        bool isTouch = distance <= _minDistanceToPoint * _minDistanceToPoint;
         return isTouch;
     }
 
@@ -60,19 +67,5 @@ public class Opossum : MonoBehaviour
         }
 
         return point;
-    }
-
-    private void Move(Vector2 direction)
-    {
-        _fliper.Flip(-direction.x);
-
-        if (direction.x < 0)
-        {
-            transform.Translate(Vector2.left * _speed * Time.deltaTime);
-        }
-        else
-        { 
-            transform.Translate(Vector2.right * _speed * Time.deltaTime);
-        }
     }
 }

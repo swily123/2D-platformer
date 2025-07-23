@@ -6,7 +6,7 @@ public class PlayerFollower : MonoBehaviour
 
     private float _maxCameraLength = 23;
 
-    private void Update()
+    private void LateUpdate()
     {
         Vector3 direction = new Vector3(_player.position.x, _player.position.y, -1f);
 

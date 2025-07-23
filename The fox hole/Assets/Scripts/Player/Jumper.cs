@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    [SerializeField] private InputMaster _inputMaster;
+    [SerializeField] private PlayerAnimator _playerAnimator;
 
     private Rigidbody2D _rigidbody;
     private bool _isGrounded;
@@ -15,17 +16,23 @@ public class Jumper : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        Jump();
-        _animator.SetFloat("YSpeed", _rigidbody.velocity.y);
+        _inputMaster.JumpButtonPressed += Jump;
     }
+
+    private void OnDisable()
+    {
+        _inputMaster.JumpButtonPressed -= Jump;
+    }
+
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+        if (_isGrounded)
         {
             _isGrounded = false;
             _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _playerAnimator.SetOrientation(_isGrounded);
         }
     }
 
@@ -34,7 +41,7 @@ public class Jumper : MonoBehaviour
         if (collision.transform.TryGetComponent<Ground>(out _))
         {
             _isGrounded = true;
-            _animator.SetTrigger("Land");
+            _playerAnimator.SetOrientation(_isGrounded);
         }
     }
 }

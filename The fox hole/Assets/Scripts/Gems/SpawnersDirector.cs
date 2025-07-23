@@ -37,6 +37,8 @@ public class SpawnersDirector : MonoBehaviour
 
     private IEnumerator Spawning()
     {
+        WaitForSeconds wait = new WaitForSeconds(_spawnDelay);
+
         while (enabled)
         {
             if (_ableSpawners.Count == 0)
@@ -48,7 +50,7 @@ public class SpawnersDirector : MonoBehaviour
             _ableSpawners[spawnerIndex].Spawn();
             _ableSpawners.RemoveAt(spawnerIndex);
 
-            yield return new WaitForSeconds(_spawnDelay);
+            yield return wait;
         }
     }
 
