@@ -8632,7 +8632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fliper: {fileID: 283713052}
-  _speed: 5
+  _speed: 5.1
 --- !u!114 &283713056
 MonoBehaviour:
   m_ObjectHideFlags: 0

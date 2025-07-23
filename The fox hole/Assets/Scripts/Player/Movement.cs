@@ -3,10 +3,9 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private PlayerAnimator _playerAnimator;
-    [SerializeField] private InputMaster _inputMaster;
+    [SerializeField] private InputReader _inputMaster;
     [SerializeField] private Fliper _fliper;
 
-    private const string _horizontal = "Horizontal";
     private float _speed = 8;
 
     private void OnEnable()
@@ -23,10 +22,9 @@ public class Movement : MonoBehaviour
         _inputMaster.HorizontalButtonsReleased -= Idle;
     }
 
-    private void Move()
+    private void Move(float direction)
     {
         _playerAnimator.Move(true);
-        float direction = Input.GetAxisRaw(_horizontal);
         _fliper.Flip(direction);
         transform.Translate(Vector2.right * _speed * Time.deltaTime);
     }

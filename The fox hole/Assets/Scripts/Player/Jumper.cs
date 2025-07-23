@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
-    [SerializeField] private InputMaster _inputMaster;
+    [SerializeField] private InputReader _inputMaster;
     [SerializeField] private PlayerAnimator _playerAnimator;
 
     private Rigidbody2D _rigidbody;
