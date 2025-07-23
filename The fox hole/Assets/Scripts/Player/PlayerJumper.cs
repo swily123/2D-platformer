@@ -1,20 +1,13 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-
-public class Jumper : MonoBehaviour
+public class PlayerJumper : MonoBehaviour
 {
+    [SerializeField] private Jumper _jumper;
     [SerializeField] private InputReader _inputMaster;
     [SerializeField] private PlayerAnimator _playerAnimator;
 
-    private Rigidbody2D _rigidbody;
-    private bool _isGrounded;
     private float _jumpForce = 20;
-
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+    private bool _isGrounded;
 
     private void OnEnable()
     {
@@ -31,7 +24,7 @@ public class Jumper : MonoBehaviour
         if (_isGrounded)
         {
             _isGrounded = false;
-            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _jumper.Jump(_jumpForce);
             _playerAnimator.SetOrientation(_isGrounded);
             _playerAnimator.Jump();
         }

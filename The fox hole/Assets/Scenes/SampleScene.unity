@@ -8411,6 +8411,7 @@ GameObject:
   - component: {fileID: 283713053}
   - component: {fileID: 283713057}
   - component: {fileID: 283713058}
+  - component: {fileID: 283713059}
   m_Layer: 6
   m_Name: Enemy Frog
   m_TagString: Untagged
@@ -8647,6 +8648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2d55ac50e5121428dc0776ef6fdcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumper: {fileID: 283713059}
   _patroler: {fileID: 283713054}
   _animator: {fileID: 283713053}
 --- !u!114 &283713057
@@ -8680,6 +8682,18 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &283713059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283713046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3276a8313be5934cbe5352acf58d166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &308649518
 GameObject:
   m_ObjectHideFlags: 0
@@ -13414,6 +13428,7 @@ GameObject:
   - component: {fileID: 2082175763}
   - component: {fileID: 2082175764}
   - component: {fileID: 2082175768}
+  - component: {fileID: 2082175770}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -13608,6 +13623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb8070be466d4748a69653623ba213d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumper: {fileID: 2082175770}
   _inputMaster: {fileID: 2082175767}
   _playerAnimator: {fileID: 2082175766}
 --- !u!114 &2082175764
@@ -13686,6 +13702,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8a5ccb2b32f32640aba1c1850b4954c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2082175770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082175754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3276a8313be5934cbe5352acf58d166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2104782301

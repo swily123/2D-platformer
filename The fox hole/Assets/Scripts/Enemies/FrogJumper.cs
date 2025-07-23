@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class FrogJumper : MonoBehaviour
 {
+    [SerializeField] private Jumper _jumper;
     [SerializeField] private Patroler _patroler;
     [SerializeField] private FrogAnimator _animator;
 
-    private Rigidbody2D _rigidbody;
     private float _jumpForce = 30;
-
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
 
     private void OnEnable()
     {
@@ -25,7 +20,7 @@ public class FrogJumper : MonoBehaviour
 
     private void Jump()
     {
-        _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        _jumper.Jump(_jumpForce);
         _animator.Jump();
         _animator.SetOrientation(true);
     }
