@@ -11,7 +11,7 @@ public class InputReader : MonoBehaviour
 
     private const string Horizontal = nameof(Horizontal);
     private const KeyCode LeftMovement = KeyCode.A;
-    private const KeyCode RightMovement = KeyCode.A;
+    private const KeyCode RightMovement = KeyCode.D;
     private const KeyCode Jump = KeyCode.Space;
 
     private void Update()

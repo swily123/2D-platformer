@@ -6,11 +6,12 @@ public class FrogAnimator : MonoBehaviour
 
     public void SetOrientation(bool isGrounded)
     {
-        _animator.SetBool(FrogAnimatorData.Params.Jump, isGrounded);
+        _animator.SetBool(FrogAnimatorData.Params.IsGrounded, isGrounded);
     }
 
     public void Jump()
     {
+        Debug.Log(2);
         _animator.SetTrigger(FrogAnimatorData.Params.Jump);
     }
 }

@@ -22,7 +22,7 @@ public class FrogJumper : MonoBehaviour
     {
         _jumper.Jump(_jumpForce);
         _animator.Jump();
-        _animator.SetOrientation(true);
+        _animator.SetOrientation(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,6 +30,7 @@ public class FrogJumper : MonoBehaviour
         if (collision.transform.TryGetComponent<Ground>(out _))
         {
             _animator.SetOrientation(true);
+            Debug.Log(1);
         }
     }
 }

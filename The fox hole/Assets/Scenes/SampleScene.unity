@@ -8407,11 +8407,11 @@ GameObject:
   - component: {fileID: 283713052}
   - component: {fileID: 283713056}
   - component: {fileID: 283713055}
+  - component: {fileID: 283713059}
   - component: {fileID: 283713054}
   - component: {fileID: 283713053}
   - component: {fileID: 283713057}
   - component: {fileID: 283713058}
-  - component: {fileID: 283713059}
   m_Layer: 6
   m_Name: Enemy Frog
   m_TagString: Untagged

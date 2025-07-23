@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-
 public class EnemyAtackSystem : MonoBehaviour
 {
     [SerializeField] private Mover _mover;

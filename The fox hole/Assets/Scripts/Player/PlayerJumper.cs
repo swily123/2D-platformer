@@ -25,8 +25,8 @@ public class PlayerJumper : MonoBehaviour
         {
             _isGrounded = false;
             _jumper.Jump(_jumpForce);
-            _playerAnimator.SetOrientation(_isGrounded);
             _playerAnimator.Jump();
+            _playerAnimator.SetOrientation(_isGrounded);
         }
     }
 
