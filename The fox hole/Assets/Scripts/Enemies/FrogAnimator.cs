@@ -1,25 +1,16 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-
 public class FrogAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
 
-    private Rigidbody2D _rigidbody2D;
-
-    private void Awake()
+    public void SetOrientation(bool isGrounded)
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator.SetBool(FrogAnimatorData.Params.Jump, isGrounded);
     }
 
-    private void Update()
+    public void Jump()
     {
-        _animator.SetFloat(FrogAnimatorData.Params.YSpeed, _rigidbody2D.velocity.y);
-    }
-
-    public void Land()
-    {
-        _animator.SetTrigger(FrogAnimatorData.Params.Land);
+        _animator.SetTrigger(FrogAnimatorData.Params.Jump);
     }
 }

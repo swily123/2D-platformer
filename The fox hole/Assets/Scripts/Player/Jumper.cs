@@ -33,6 +33,7 @@ public class Jumper : MonoBehaviour
             _isGrounded = false;
             _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _playerAnimator.SetOrientation(_isGrounded);
+            _playerAnimator.Jump();
         }
     }
 

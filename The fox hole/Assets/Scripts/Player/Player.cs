@@ -9,15 +9,5 @@ public class Player  : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _health -= damage;
-        Kill();
-        Debug.Log($"{gameObject.name} - {_health} υο");
-    }
-
-    private void Kill()
-    {
-        if (_health <= 0)
-        {
-            Debug.Log("Game over.");
-        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Frog : MonoBehaviour
+public class FrogJumper : MonoBehaviour
 {
     [SerializeField] private Patroler _patroler;
     [SerializeField] private FrogAnimator _animator;
@@ -26,13 +26,15 @@ public class Frog : MonoBehaviour
     private void Jump()
     {
         _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        _animator.Jump();
+        _animator.SetOrientation(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.TryGetComponent<Ground>(out _))
         {
-            _animator.Land();
+            _animator.SetOrientation(true);
         }
     }
 }

@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     {
         _health -= damage;
         Kill();
-        Debug.Log($"{gameObject.name} - {_health} υο");
     }
 
     private void Kill()
