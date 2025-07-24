@@ -30,7 +30,6 @@ public class FrogJumper : MonoBehaviour
         if (collision.transform.TryGetComponent<Ground>(out _))
         {
             _animator.SetOrientation(true);
-            Debug.Log(1);
         }
     }
 }

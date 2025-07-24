@@ -11,7 +11,6 @@ public class FrogAnimator : MonoBehaviour
 
     public void Jump()
     {
-        Debug.Log(2);
         _animator.SetTrigger(FrogAnimatorData.Params.Jump);
     }
 }

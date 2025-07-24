@@ -19,5 +19,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Debug.Log($"{transform.name} | {_health} hp");
     }
 }
