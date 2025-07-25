@@ -8,12 +8,13 @@ public class Patroler : MonoBehaviour
     [SerializeField] private Mover _mover;
     [SerializeField] private List<Transform> _points;
 
-    public event Action PatrolStarted;
+    public event Action<bool> IsStartPatroling;
+    public bool IsPatroling { get; private set; } = true;
 
+    private Coroutine _coroutine;
     private int _currentPoint = 0;
     private float _patroleDelay = 1.5f;
     private float _minDistanceToPoint = 0.05f;
-    private Coroutine _coroutine;
 
     private void Start()
     {
@@ -22,14 +23,18 @@ public class Patroler : MonoBehaviour
 
     public void EnablePatrole()
     {
+        IsStartPatroling?.Invoke(true);
         _coroutine = StartCoroutine(Patrolling());
+        IsPatroling = true;
     }
 
     public void StopPatrole()
     {
         if (_coroutine != null)
         {
+            IsPatroling = false;
             StopCoroutine(_coroutine);
+            IsStartPatroling?.Invoke(false);
         }
     }
 
@@ -41,7 +46,6 @@ public class Patroler : MonoBehaviour
         {
             Transform targetPoint = GetPoint();
             Vector2 direction = (targetPoint.position - transform.position).normalized;
-            PatrolStarted?.Invoke();
 
             while (IsTouchPoint(targetPoint) == false)
             {

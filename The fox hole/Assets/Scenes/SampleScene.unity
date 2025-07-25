@@ -8716,8 +8716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2d55ac50e5121428dc0776ef6fdcf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumper: {fileID: 283713059}
   _patroler: {fileID: 283713054}
+  _jumper: {fileID: 283713059}
   _animator: {fileID: 283713053}
 --- !u!114 &283713057
 MonoBehaviour:
@@ -14572,14 +14572,14 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 317395514}
   - {fileID: 1798563571}
   - {fileID: 2082175756}
-  - {fileID: 62333472}
-  - {fileID: 94289987}
-  - {fileID: 317395514}
   - {fileID: 519471185}
-  - {fileID: 1672716824}
   - {fileID: 283713048}
+  - {fileID: 94289987}
+  - {fileID: 62333472}
+  - {fileID: 1672716824}
   - {fileID: 1769475865}
   - {fileID: 8879634451155563498}
   - {fileID: 356810576}

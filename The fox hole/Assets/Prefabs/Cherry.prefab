@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 202675952189629244}
   - component: {fileID: 901811332487384915}
   - component: {fileID: 9070823189464795682}
-  - component: {fileID: 2564122588604832012}
+  - component: {fileID: 6281607478388980025}
   m_Layer: 0
   m_Name: Cherry
   m_TagString: Untagged
@@ -153,7 +153,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19, y: 0.18}
   m_EdgeRadius: 0
---- !u!114 &2564122588604832012
+--- !u!114 &6281607478388980025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

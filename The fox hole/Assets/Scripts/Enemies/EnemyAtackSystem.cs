@@ -11,7 +11,6 @@ public class EnemyAtackSystem : MonoBehaviour
     private float _distanceToFollow = 10;
     private float _distanceToAtack = 2.4f;
     private float _atackDelay = 1.5f;
-    private bool _isPatroling = true;
     private bool _canAtack = true;
 
     private void Update()
@@ -22,7 +21,6 @@ public class EnemyAtackSystem : MonoBehaviour
         {
             if (hit.transform.TryGetComponent(out Player player))
             {
-                _isPatroling = false;
                 Vector2 direction = (player.transform.position - transform.position).normalized;
 
                 _patroler.StopPatrole();
@@ -36,10 +34,9 @@ public class EnemyAtackSystem : MonoBehaviour
         }
         else
         {
-            if (_isPatroling == false)
+            if (_patroler.IsPatroling == false)
             {
                 _patroler.EnablePatrole();
-                _isPatroling = true;
             }
         }
     }
