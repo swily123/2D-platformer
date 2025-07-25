@@ -1,15 +1,21 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : HealChanger
 {
     [SerializeField] private Patroler _patroler;
     [SerializeField] private Mover _mover;
 
     private float _health = 50;
 
+    private void Awake()
+    {
+        HealthMaxValue = _health;
+    }
+
     public void TakeDamage(float damage)
     {
         _health -= damage;
+        OnHealthUpdated(_health);
         Kill();
     }
 
@@ -19,7 +25,5 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        Debug.Log($"{transform.name} | {_health} hp");
     }
 }

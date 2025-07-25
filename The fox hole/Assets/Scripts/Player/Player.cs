@@ -1,34 +1,35 @@
-using UnityEngine;
-
-public class Player  : MonoBehaviour
+public class Player  : HealChanger
 {
     private float _health = 100;
-    private float _healthMaxValue = 100;
-    private float _healValue = 15;
 
     public float Damage { get; private set; } = 20;
 
-    public void Heal()
+    private void Awake()
     {
-        _health += _healValue;
+        HealthMaxValue = 100;
+    }
 
-        if (_health > _healthMaxValue)
+    public void Heal(float healAmount)
+    {
+        _health += healAmount;
+
+        if (_health > HealthMaxValue)
         {
-            _health = _healthMaxValue;
+            _health = HealthMaxValue;
         }
 
-        Debug.Log($"{transform.name} | {_health} hp");
+        OnHealthUpdated(_health);
     }
 
     public void TakeDamage(float damage)
     {
         _health -= damage;
 
-        Debug.Log($"{transform.name} | {_health} hp");
-
-        if (_health <= 0)
+        if (_health < 0)
         {
-            Debug.Log("Game over");
+            _health = 0;
         }
+
+        OnHealthUpdated(_health);
     }
 }
