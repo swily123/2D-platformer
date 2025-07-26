@@ -11,6 +11,8 @@ public class PlayerVampirismSystem : MonoBehaviour
     public float AbilityDuration { get; private set; } = 6;
     public float RechargeDuration { get; private set; } = 4;
 
+    private bool _canBeActive = true;
+
     private void Start()
     {
         SetActiveAbility(IsAviable);
@@ -28,7 +30,7 @@ public class PlayerVampirismSystem : MonoBehaviour
 
     private void AbilityHandler()
     {
-        if (IsAviable == false)
+        if (IsAviable == false && _canBeActive)
         {
             StartCoroutine(EnableVampirism());
         }
@@ -36,6 +38,7 @@ public class PlayerVampirismSystem : MonoBehaviour
 
     private IEnumerator EnableVampirism()
     {
+        _canBeActive = false;
         SetActiveAbility(true);
         yield return new WaitForSeconds(AbilityDuration);
         SetActiveAbility(false);
@@ -48,6 +51,7 @@ public class PlayerVampirismSystem : MonoBehaviour
         _vampirismViewer.RechargeStatus();
         yield return new WaitForSeconds(RechargeDuration);
         SetActiveAbility(false);
+        _canBeActive = true;
     }
 
     private void SetActiveAbility(bool isActive)
