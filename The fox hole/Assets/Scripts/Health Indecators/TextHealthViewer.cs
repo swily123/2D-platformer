@@ -5,28 +5,32 @@ using UnityEngine;
 
 public class TextHealthViewer : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private HealthChanger _character;
 
     private TextMeshProUGUI _textMeshProUGUI;
 
     private void Awake()
     {
         _textMeshProUGUI = GetComponent<TextMeshProUGUI>();
-        ChangeText(_player.HealthMaxValue);
+    }
+
+    private void Start()
+    {
+        ChangeText(_character.HealthMaxValue);
     }
 
     private void OnEnable()
     {
-        _player.HealthUpdated += ChangeText;
+        _character.HealthUpdated += ChangeText;
     }
 
     private void OnDisable()
     {
-        _player.HealthUpdated -= ChangeText;
+        _character.HealthUpdated -= ChangeText;
     }
 
     private void ChangeText(float health)
     {
-        _textMeshProUGUI.text = $"{health} / {_player.HealthMaxValue}";
+        _textMeshProUGUI.text = $"{health} / {_character.HealthMaxValue}";
     }
 }

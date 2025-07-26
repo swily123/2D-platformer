@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SliderHealthViewer : MonoBehaviour
 {
-    [SerializeField] private HealChanger _character;
+    [SerializeField] private HealthChanger _character;
 
     protected Slider _slider;
 

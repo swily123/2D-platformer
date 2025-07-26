@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class Cherry : MonoBehaviour
+namespace Scripts
 {
-    private float _healValue = 15;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class Cherry : MonoBehaviour
     {
-        if (collision.TryGetComponent(out Player player))
+        private float _healValue = 15;
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            player.Heal(_healValue);
-            Destroy(gameObject);
+            if (collision.TryGetComponent(out Player player))
+            {
+                player.Heal(_healValue);
+                Destroy(gameObject);
+            }
         }
     }
 }

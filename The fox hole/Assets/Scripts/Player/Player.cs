@@ -1,4 +1,4 @@
-public class Player  : HealChanger
+public class Player  : HealthChanger
 {
     private float _health = 100;
 
@@ -21,7 +21,7 @@ public class Player  : HealChanger
         OnHealthUpdated(_health);
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         _health -= damage;
 

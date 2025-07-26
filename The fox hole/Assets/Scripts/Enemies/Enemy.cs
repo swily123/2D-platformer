@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : HealChanger
+public class Enemy : HealthChanger
 {
     [SerializeField] private Patroler _patroler;
     [SerializeField] private Mover _mover;
@@ -12,7 +12,7 @@ public class Enemy : HealChanger
         HealthMaxValue = _health;
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         _health -= damage;
         OnHealthUpdated(_health);

@@ -8,11 +8,13 @@ public class InputReader : MonoBehaviour
     public event Action HorizontalButtonsReleased;
     public event Action JumpButtonPressed;
     public event Action LeftButtonClicked;
+    public event Action AbilityPressed;
 
     private const string Horizontal = nameof(Horizontal);
     private const KeyCode LeftMovement = KeyCode.A;
     private const KeyCode RightMovement = KeyCode.D;
     private const KeyCode Jump = KeyCode.Space;
+    private const KeyCode Ability = KeyCode.E;
 
     private void Update()
     {
@@ -39,6 +41,11 @@ public class InputReader : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             LeftButtonClicked?.Invoke();
+        }
+
+        if (Input.GetKeyDown(Ability))
+        {
+            AbilityPressed?.Invoke();
         }
     }
 }
